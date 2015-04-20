@@ -93,14 +93,14 @@ $application_folder = 'application';
  *
  */
 // The directory name, relative to the "controllers" folder.  Leave blank
-               // if your controller is not in a sub-folder within the "controllers" folder
-               // $routing['directory'] = '';
+// if your controller is not in a sub-folder within the "controllers" folder
+// $routing['directory'] = '';
 
 // The controller class file name.  Example:  Mycontroller
-               // $routing['controller'] = '';
+// $routing['controller'] = '';
 
 // The controller function you wish to be called.
-               // $routing['function']    = '';
+// $routing['function']    = '';
 
 /*
  * -------------------------------------------------------------------
@@ -120,8 +120,8 @@ $application_folder = 'application';
 // $assign_to_config['name_of_config_item'] = 'value of config item';
 
 // --------------------------------------------------------------------
-               // END OF USER CONFIGURABLE SETTINGS.  DO NOT EDIT BELOW THIS LINE
-               // --------------------------------------------------------------------
+// END OF USER CONFIGURABLE SETTINGS.  DO NOT EDIT BELOW THIS LINE
+// --------------------------------------------------------------------
 
 /*
  * ---------------------------------------------------------------
@@ -155,7 +155,7 @@ if (!is_dir($system_path)) {
 define('SELF', pathinfo(__FILE__, PATHINFO_BASENAME));
 
 // The PHP file extension
-               // this global constant is deprecated.
+// this global constant is deprecated.
 define('EXT', '.php');
 
 // Path to the system folder
