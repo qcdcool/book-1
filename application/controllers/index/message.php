@@ -20,6 +20,14 @@ class Message extends CI_Controller
         $data['title']    = $this->title;
 
         $data['message'] = $this->message->check();
+        foreach ($data['message'] as $key => &$value) {
+            if ($value['pid'] != 0) {
+                $row = $this->message->select($value['pid']);
+                if ($row) {
+                    $value['content'] .= ' //管理员回复:' .$row['content'];
+                }
+            }
+        }
         // p($data);
         $this->load->view('index/message', $data);
     }

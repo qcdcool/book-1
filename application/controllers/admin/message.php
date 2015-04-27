@@ -17,8 +17,15 @@ class Message extends MY_Controller
      */
     public function index()
     {
-
         $data['message'] = $this->message->check();
+        foreach ($data['message'] as $key => &$value) {
+            if ($value['pid'] != 0) {
+                $row = $this->message->select($value['pid']);
+                if ($row) {
+                    $value['content'] .= ' //管理员回复:' .$row['content'];
+                }
+            }
+        }
         $this->load->view('admin/message/index', $data);
     }
 
@@ -27,8 +34,14 @@ class Message extends MY_Controller
      */
     public function delete()
     {
-        $uid = $this->uri->segment(4);
-        $this->message->del($uid);
+        $mid = $this->uri->segment(4);
+        // $rs = $this->message->select($mid);
+        //
+        // foreach ($rs as $v) {
+        //
+        // }
+        $this->message->del($mid);
+
         success('admin/message/index', '删除成功');
     }
 
@@ -48,12 +61,13 @@ class Message extends MY_Controller
     public function reply_insert()
     {
         $data = [
-            'pid'      => $this->input->post('mid'),
-            'username' => $this->session->userdata('username'),
-            'content'  => $this->input->post('content'),
+            'pid' => $this->input->post('mid'),
+            'time' => time(),
+            'content' => $this->input->post('content'),
         ];
-
-        print_r($data);
+        $this->message->insert($data);
+        success('admin/message/index', '操作成功');
+        // print_r($data);
     }
 
 }
