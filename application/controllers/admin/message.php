@@ -32,12 +32,11 @@ class Message extends MY_Controller
     /**
      * 删除
      */
-    public function delete()
+    public function delete($mid)
     {
-        $mid = $this->uri->segment(4);
         $this->message->del($mid);
-
-        success('admin/message/index', '删除成功');
+        echo '删除成功';
+        // success('admin/message/index', '删除成功');
     }
 
     /**
