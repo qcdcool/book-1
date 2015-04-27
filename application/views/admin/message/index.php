@@ -35,6 +35,8 @@
 		function del(url) {
 			$.ajax({
 				url:url,
+				type:'GET',
+				data:{},
 				success:function(data) {
 					alert(data)
 					window.location.reload();

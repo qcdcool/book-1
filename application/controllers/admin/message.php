@@ -36,7 +36,6 @@ class Message extends MY_Controller
     {
         $this->message->del($mid);
         echo '删除成功';
-        // success('admin/message/index', '删除成功');
     }
 
     /**
