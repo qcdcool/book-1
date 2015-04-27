@@ -35,11 +35,6 @@ class Message extends MY_Controller
     public function delete()
     {
         $mid = $this->uri->segment(4);
-        // $rs = $this->message->select($mid);
-        //
-        // foreach ($rs as $v) {
-        //
-        // }
         $this->message->del($mid);
 
         success('admin/message/index', '删除成功');
@@ -60,11 +55,11 @@ class Message extends MY_Controller
      */
     public function reply_insert()
     {
-        $data = [
+        $data = array(
             'pid' => $this->input->post('mid'),
             'time' => time(),
             'content' => $this->input->post('content'),
-        ];
+        );
         $this->message->insert($data);
         success('admin/message/index', '操作成功');
         // print_r($data);
