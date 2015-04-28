@@ -7,7 +7,6 @@
  */
 class User_model extends CI_Model
 {
-
     /**
      * 查看
      */

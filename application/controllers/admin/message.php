@@ -31,6 +31,7 @@ class Message extends MY_Controller
 
     /**
      * 删除
+     * Ajax调用
      */
     public function delete($mid)
     {
