@@ -16,7 +16,7 @@
 			<input type="submit" id="sub" value=""/>
 			<!-- 验证码 -->
 			<div class="captcha">
-				<img src="<?php echo site_url('admin/login/code')?>" alt="" />
+				<img src="<?php echo site_url('admin/login/code')?>" onclick="this.src=this.src+'/'" title="点击切换" />
 			</div>
 		</form>
 		<div class="four_bj">
