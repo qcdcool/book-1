@@ -21,7 +21,7 @@ class Book extends MY_Controller
         $this->config->set_item('url_suffix', '');
         //载入分页类
         $this->load->library('pagination');
-        $perPage = 3;
+        $perPage = 10;
 
         //配置项设置
         $config['base_url']    = site_url('admin/book/index');
@@ -44,8 +44,8 @@ class Book extends MY_Controller
         $data['cid']   = 0;
         $data['title'] = '';
 
-        $data['category'] = $this->cate->select();
         $data['book']     = $this->book->book_category();
+        $data['category'] = $this->cate->select();
 
         // p($data);die;
         $this->load->view('admin/book/index', $data);
@@ -252,5 +252,7 @@ class Book extends MY_Controller
         $this->book->delete($bid);
         success('admin/book/index', '删除成功');
     }
+
+
 
 }

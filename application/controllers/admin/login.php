@@ -42,9 +42,7 @@ class Login extends CI_Controller
         if (!isset($_SESSION)) {
             session_start();
         }
-        if (strtoupper($code) != $_SESSION['code']) {
-            error('验证码错误');
-        }
+        
 
         $username = $this->input->post('username');
         $this->load->model('admin_model', 'admin');
@@ -54,6 +52,10 @@ class Login extends CI_Controller
 
         if (!$userData || $userData[0]['passwd'] != md5($passwd)) {
             error('用户名或者密码不正确');
+        }
+        
+        if (strtoupper($code) != $_SESSION['code']) {
+            error('验证码错误');
         }
 
         $sessionData = array(
